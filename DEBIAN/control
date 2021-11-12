@@ -1,0 +1,11 @@
+Package: welcome-tigeros
+Version: 1.2.1
+Depends: zenity, sed, grep, apt-transport-https, curl, gnupg, coreutils, mintdrivers, xfconf, wget
+Architecture: all
+Maintainer: eltonff <eltonfabricio10@gmail.com>
+Section: admin
+Priority: optional
+Installed-Size:4520
+Description: Welcome for TigerOS
+Conflicts: welcome-tigeros
+Replaces: welcome-tigeros

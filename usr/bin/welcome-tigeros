@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cd /usr/share/welcome-tigeros
+bigbashview -t gtk index.sh.htm -w fixed -s 900x615 -i icons/logo.png
