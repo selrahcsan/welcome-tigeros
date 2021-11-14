@@ -15,6 +15,7 @@ working_dir=$(mktemp -d)
 cp -rfv "${HERE}"/* ${working_dir}
 rm ${working_dir}/build.sh
 rm ${working_dir}/README.md 
+chmod -v -R +x ${working_dir}
 
 dpkg -b ${working_dir}
 rm -rfv ${working_dir}
