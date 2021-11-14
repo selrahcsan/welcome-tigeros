@@ -22,7 +22,7 @@ case $1 in
             xfconf-query -c xfwm4 -p /general/theme -s "tiger-green-mix"
 
         elif [ $(grep -i 'yellow' <<< $icon_theme) ];then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Yellow" &
+            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Yellow-Light" &
             xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-yellow-mix" &
             xfconf-query -c xfwm4 -p /general/theme -s "tiger-yellow-mix"
 
