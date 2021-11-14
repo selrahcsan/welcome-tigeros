@@ -1,5 +1,5 @@
 Package: welcome-tigeros
-Version: 1.2.1
+Version: 1.2.2
 Depends: zenity, sed, grep, apt-transport-https, curl, gnupg, coreutils, mintdrivers, xfconf, wget
 Architecture: all
 Maintainer: eltonff <eltonfabricio10@gmail.com>
