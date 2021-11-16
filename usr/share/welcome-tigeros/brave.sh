@@ -7,6 +7,7 @@
 # Com a ferramenta BigBashView
 # Tecnologias utilizadas: bash, html, css, javascript e <3
 
+
 windowID="$(xwininfo -name "Bem-vindo TigerOS" | head -n2 | tail -n1 | awk '{print $4}')"
 
 function instalarPacote(){
