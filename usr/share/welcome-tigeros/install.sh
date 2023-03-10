@@ -163,7 +163,7 @@ case $1 in
         ;;
 
     driver)
-        pkexec driver-manager
+        driver-manager
         exit
         ;;
 
