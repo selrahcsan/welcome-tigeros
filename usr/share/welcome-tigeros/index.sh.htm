@@ -17,13 +17,7 @@ if [ $(grep -i 'dark' <<< $sys_theme) ];then
     shadow_color_dark='box-shadow: 0px 0px 2px 2px #fff'
     shadow_color_mix='box-shadow: none'
     shadow_color_light='box-shadow: none'
-elif [ $(grep -i 'mix' <<< $sys_theme) ];then
-    mix_check="checked"
-    css_check="light"
-    shadow_color='#333'
-    shadow_color_dark='box-shadow: none'
-    shadow_color_mix='box-shadow: 0px 0px 2px 2px #888'
-    shadow_color_light='box-shadow: none'
+
 else
     light_check="checked"
     css_check="light"
@@ -33,33 +27,24 @@ else
     shadow_color_light='box-shadow: 0px 0px 2px 2px #333'
 fi
 
-if [ $(grep -i 'amber' <<< $icon_theme) ]; then
-    amber_check="checked"
-elif [ $(grep -i 'green' <<< $icon_theme) ];then
+if [ $(grep -i 'green' <<< $icon_theme) ];then
     green_check="checked"
-
-elif [ $(grep -i 'yellow' <<< $icon_theme) ];then
-    yellow_check="checked"
-
-elif [ $(grep -i 'gray' <<< $icon_theme) ];then
-    gray_check="checked"
-
-elif [ $(grep -i 'pink' <<< $icon_theme) ];then
-    pink_check="checked"
-
+elif [ $(grep -i 'orange' <<< $icon_theme) ];then
+    orange_check="checked"
 elif [ $(grep -i 'red' <<< $icon_theme) ];then
     red_check="checked"
 elif [ $(grep -i 'purple' <<< $icon_theme) ];then
     purple_check="checked"
+elif [ $(grep -i 'pink' <<< $icon_theme) ];then
+    pink_check="checked"
 else
-    blue_check="checked"
+    yellow_check="checked"
 fi
 
 [ -e ~/.config/autostart/welcome-tigeros.desktop ] && checked='checked'
 
 echo '
 <head>
-    <title>Bem-vindo ao TigerOS</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap-'$css_check'.min.css">
     <link rel="stylesheet" type="text/css" href="css/radio.css">
     <style type="text/css">
@@ -91,6 +76,7 @@ echo '
             bottom: -19px;
         }
     </style>
+
 </head>
 <body oncontextmenu="return false;">
     <div class="container-fluid">
@@ -144,41 +130,34 @@ echo '
                         <hr><p><h2>Cor de destaque</h2></p>
                         <div class="row">
                             <div style="width: 15px">&nbsp;</div>
-			    <label class="container col-sm-1">
-                              <input type="radio" name="iconchange" '"onclick=\"_run('./themes.sh amber');\" $amber_check"'>
-                              <span class="checkmark checkmark-amber" title="Laranja"></span>
-                            </label>
                             <label class="container col-sm-1">
-                              <input type="radio" name="iconchange" '"onclick=\"_run('./themes.sh blue');\" $blue_check"'>
-                              <span class="checkmark checkmark-blue" title="Azul"></span>
-                            </label>
-
-                            <label class="container col-sm-1">
-                              <input type="radio" name="iconchange" '"onclick=\"_run('./themes.sh pink');\" $pink_check"'>
-                              <span class="checkmark checkmark-pink" title="Rosa"></span>
-                            </label>
-
-                            <label class="container col-sm-1">
-                              <input type="radio" name="iconchange" '"onclick=\"_run('./themes.sh green');\" $green_check"'>
+                              <input type="radio" name="iconchange"
+                                   '"onclick=\"_run('./themes.sh green');\" $green_check"'>
                               <span class="checkmark checkmark-green" title="Verde"></span>
                             </label>
                             <label class="container col-sm-1">
-                              <input type="radio" name="iconchange" '"onclick=\"_run('./themes.sh gray');\" $gray_check"'>
-                              <span class="checkmark checkmark-gray" title="Cinza"></span>
+                              <input type="radio" name="iconchange"
+                                   '"onclick=\"_run('./themes.sh orange');\" $orange_check"'>
+                              <span class="checkmark checkmark-orange" title="Laranja"></span>
                             </label>
-                            
                             <label class="container col-sm-1">
-                              <input type="radio" name="iconchange" '"onclick=\"_run('./themes.sh red');\" $red_check"'>
-                              <span class="checkmark checkmark-red" title="Vermelho"></span>
-                            </label>
-
-                            <label class="container col-sm-1">
-                              <input type="radio" name="iconchange" '"onclick=\"_run('./themes.sh yellow');\" $yellow_check"'>
+                              <input type="radio" name="iconchange"
+                                   '"onclick=\"_run('./themes.sh yellow');\" $yellow_check"'>
                               <span class="checkmark checkmark-yellow" title="Amarelo"></span>
                             </label>
-
                             <label class="container col-sm-1">
-                              <input type="radio" name="iconchange" '"onclick=\"_run('./themes.sh purple');\" $purple_check"'>
+                              <input type="radio" name="iconchange"
+                                   '"onclick=\"_run('./themes.sh red');\" $red_check"'>
+                              <span class="checkmark checkmark-red" title="Vermelho"></span>
+                            </label>
+                            <label class="container col-sm-1">
+                              <input type="radio" name="iconchange"
+                                   '"onclick=\"_run('./themes.sh pink');\" $pink_check"'>
+                              <span class="checkmark checkmark-pink" title="Rosa"></span>
+                            </label>
+                            <label class="container col-sm-1">
+                              <input type="radio" name="iconchange"
+                                   '"onclick=\"_run('./themes.sh purple');\" $purple_check"'>
                               <span class="checkmark checkmark-purple" title="Roxo"></span>
                             </label>
                         </div><br>
@@ -194,23 +173,32 @@ echo '
                                         class='btn btn-primary btn-block'>Atualizar Sistema</button>"'
                             </div>
                             <div class="col-4">'
-                                if [ "$(type -p samba)" ];then
-                                    echo "<button type='button' onclick=\"_run('./remove.sh samba-* Samba')\"
-                                            class='btn btn-danger btn-block'>Remover Samba (AD)</button>"
+                                if [ -e /usr/share/apport/package-hooks/source_clamav.py ];then
+                                    echo "<button type='button' onclick=\"_run('./remove.sh clamtk Antivírus')\"
+                                                  class='btn btn-danger btn-block btn-remove'>
+                                                  Remover Antivírus
+                                          </button>"
                                 else
-                                    echo "<button type='button' onclick=\"_run('./install.sh samba')\"
-                                        class='btn btn-primary btn-block'>Instalar Samba (AD)</button>"
+                                    echo "<button type='button' onclick=\"_run('./install.sh clamav')\"
+                                                  class='btn btn-primary btn-block btn-install'>
+                                                  Instalar Antivírus
+                                          </button>"
                                 fi
                         echo '</div>
                         </div><br>
                         <div class="row">
+                            <div class="col-4">'
+                        if [ "$(type -p remmina)" ];then
+                            echo '<button '"onclick=\"_run('./remove.sh remmina Remmina')\""' type="button"
+                                        class="btn btn-danger btn-block">Remover Remmina</button>'
+                        else
+                            echo '<button '"onclick=\"_run('./install.sh remmina')\""' type="button"
+                                        class="btn btn-primary btn-block">Instalar Remmina</button>'
+                        fi
+                    echo '  </div>
                             <div class="col-4">
-                                <button '"onclick=\"_run('./install.sh cache-apt')\""' type="button"
-                                        class="btn btn-primary btn-block">Limpar cache (APT)</button>
-                            </div>
-                            <div class="col-4">
-                                <button '"onclick=\"_run('./install.sh cache-user')\""' type="button"
-                                        class="btn btn-primary btn-block">Limpar cache (Usuário)</button>
+                                <button '"onclick=\"_run('./install.sh codecs')\""' type="button"
+                                        class="btn btn-primary btn-block">Instalar Codecs</button>
                             </div>
                         </div>
 
@@ -297,7 +285,7 @@ echo '
                                 <div class="card border-primary mb-3" style="max-width: 12rem;">
                                     <div class="card-header text-center">
                                         <img src="icons/msoffice.png" alt="MSOffice" height="48" width="48">
-                                        <h4>MS Office</h4>
+                                        <h4>Office 365</h4>
                                     </div>
                                     <div class="card-body">'
                                      if [ "$(type -p msword)" ];then
@@ -795,18 +783,17 @@ echo '
                         <p><h2 class="text-center">Equipe</h2></p>
                         <ul style="list-style:none">
                             <li>Daigo Asuka - idealizador</li>
+                            <li>Natanael Barbosa - developer (AppImage Installer, simplifica Xfce, etc)</li>
                             <li>Elton Ferreira - developer (painel Boas-vindas, Configurações do kernel, etc.)</li>
-                            <li>Natanael Barbosa - developer (AppImage Installer, Simplifica Xfce, etc)</li>
+                            <li>Ednei - Designer Gráfico, Site</li>
+                            <li>Charles Santana Pereira - developer (alterações PopShop, versão Studio)</li>
                         </ul><hr>
 
                         <p><h2 class="text-center">Colaboradores</h2></p>
                         <ul style="list-style:none">
-                            <li>Ednei: wallpapers, site, cards cursos, thumbs canal, etc</li>
-                            <li>JP Carqueija: wallpapers, novo conceito da logo</li>
                             <li>Rodrigo Chile: wallpapers TigerOSbeta, TigerOSalternative</li>
-                            <li>Miguel Linuxer: wallpapers g890</li>
-                            <li>Joaquim Miguel: wallpapers tgOSjm21 e tgJM21</li>
-                            <li>dev_null: plymouth</li>
+                            <li>Denis Corcini: padrim</li>
+                            <li>Julio Caio: doação microfone</li>
                         </ul><hr>
 
                         <div class="row">&nbsp;&nbsp;&nbsp;&nbsp;
@@ -816,7 +803,7 @@ echo '
                                 CONTRIBUIÇÃO
                             </button>&nbsp;&nbsp;
                             <button type="button" class="btn btn-outline-success col-3"
-                '"onclick=\"_run('xdg-open https://tigeros.com.br')\""'>
+                '"onclick=\"_run('xdg-open https://mestresemlinux.com.br/wp/tigeros')\""'>
                                 SITE OFICIAL
                             </button>&nbsp;&nbsp;
                             <button type="button" class="btn btn-outline-success col-3"
@@ -835,51 +822,6 @@ echo '
         </div>
     </div>
     <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>'
-
-echo "
-    <script type='text/javascript'>
-        \$(document).ready(function(){
-
-            \$('#alert-tor').hide();
-            \$('#div-tor').mouseover(function(){
-                \$('#alert-tor').show();
-            });
-            \$('#div-tor').mouseout(function(){
-                \$('#alert-tor').hide();
-            });
-
-            \$('#btnlight').click(function(){
-
-                \$.get('./themes.sh', 'light', function(){
-                    location.reload(true);
-                });
-            });
-
-            \$('#btnmix').click(function(){
-
-                \$.get('./themes.sh', 'mix', function(){
-                    location.reload(true);
-                });
-            });
-
-            \$('#btndark').click(function(){
-
-                \$.get('./themes.sh', 'dark', function(){
-                    location.reload(true);
-                });
-            });
-
-            \$('#customSwitch1').on('change',function(){
-
-                \$.get('./autostart.sh');
-            });
-
-            \$(function () {
-                \$('[data-toggle=\"tooltip\"]').tooltip()
-            });
-
-        });
-    </script>
-</body>
-"
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+</body>'

@@ -66,60 +66,46 @@
   transform: rotate(45deg);
 }
 
-.checkmark-amber,
-.container input:checked ~ .checkmark-amber,
-.container:hover input ~ .checkmark-amber
-{
-  background-color:#b56400;
-}
-
-.checkmark-pink,
-.container input:checked ~ .checkmark-pink,
-.container:hover input ~ .checkmark-pink
-{
-  background-color:#ee2486ff;
-}
-
-.checkmark-blue,
-.container input:checked ~ .checkmark-blue,
-.container:hover input ~ .checkmark-blue
-{
-  background-color:#0066cc;
-}
-
 .checkmark-green,
 .container input:checked ~ .checkmark-green,
 .container:hover input ~ .checkmark-green
 {
-  background-color:#029354;
+  background-color:#008000;
 }
 
-.checkmark-gray,
-.container input:checked ~ .checkmark-gray,
-.container:hover input ~ .checkmark-gray
+.checkmark-orange,
+.container input:checked ~ .checkmark-orange,
+.container:hover input ~ .checkmark-orange
 {
-  background-color:#586f87;
-}
-
-.checkmark-yellow,
-.container input:checked ~ .checkmark-yellow,
-.container:hover input ~ .checkmark-yellow
-{
-  background-color:#ffb935fc;
+  background-color:#FF6600;
 }
 
 .checkmark-red,
 .container input:checked ~ .checkmark-red,
 .container:hover input ~ .checkmark-red
 {
-  background-color:#cc2d2d;
+  background-color:#ff0000;
 }
 
 .checkmark-purple,
 .container input:checked ~ .checkmark-purple,
 .container:hover input ~ .checkmark-purple
 {
-  background-color:#8f32b2;
+  background-color:#9E2CD1;
+}
+
+.checkmark-pink,
+.container input:checked ~ .checkmark-pink,
+.container:hover input ~ .checkmark-pink
+{
+  background-color:#FF0066;
+}
+
+.checkmark-yellow,
+.container input:checked ~ .checkmark-yellow,
+.container:hover input ~ .checkmark-yellow
+{
+  background-color:#FFCC00;
 }
 
 .checkmark-light,
@@ -186,7 +172,7 @@
 }
 
 #sidebar{
-  height: 100%;
+  height: 620px;
 }
 
 .scrollbar {

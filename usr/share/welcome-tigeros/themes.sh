@@ -12,250 +12,181 @@ sys_theme="$(xfconf-query -c xsettings -p /Net/ThemeName)"
 
 case $1 in
     mix)
-        if [ $(grep -i 'amber' <<< $icon_theme) ]; then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Amber" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-orange-mix" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-orange-mix"
-        elif [ $(grep -i 'green' <<< $icon_theme) ];then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Green" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-green-mix" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-green-mix"
-
-        elif [ $(grep -i 'yellow' <<< $icon_theme) ];then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Yellow-Light" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-yellow-mix" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-yellow-mix"
-
-        elif [ $(grep -i 'gray' <<< $icon_theme) ];then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Gray" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-grey-mix" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-grey-mix"
+        if [ $(grep -i 'green' <<< $icon_theme) ];then
+            xfconf-query -c xsettings -p /Net/IconThemeName -s "Green-Dark" &
+            xfconf-query -c xsettings -p /Net/ThemeName -s "green-mix" &
+            xfconf-query -c xfwm4 -p /general/theme -s "Flat-Remix-Dark-XFWM"
+        elif [ $(grep -i 'orange' <<< $icon_theme) ];then
+            xfconf-query -c xsettings -p /Net/IconThemeName -s "Orange-Dark" &
+            xfconf-query -c xsettings -p /Net/ThemeName -s "orange-mix" &
+            xfconf-query -c xfwm4 -p /general/theme -s "Flat-Remix-Dark-XFWM"
         elif [ $(grep -i 'red' <<< $icon_theme) ];then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Red" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-red-mix" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-red-mix"
-        elif [ $(grep -i 'purple' <<< $icon_theme) ];then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Purple" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-purple-mix" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-purple-mix"
-
+            xfconf-query -c xsettings -p /Net/IconThemeName -s "Red-Dark" &
+            xfconf-query -c xsettings -p /Net/ThemeName -s "red-mix" &
+            xfconf-query -c xfwm4 -p /general/theme -s "Flat-Remix-Dark-XFWM"
         elif [ $(grep -i 'pink' <<< $icon_theme) ];then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Pink" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-pink-mix" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-pink-mix"
-
+            xfconf-query -c xsettings -p /Net/IconThemeName -s "Pink-Dark" &
+            xfconf-query -c xsettings -p /Net/ThemeName -s "pink-mix" &
+            xfconf-query -c xfwm4 -p /general/theme -s "Flat-Remix-Dark-XFWM"
+        elif [ $(grep -i 'yellow' <<< $icon_theme) ];then
+            xfconf-query -c xsettings -p /Net/IconThemeName -s "Yellow-Dark" &
+            xfconf-query -c xsettings -p /Net/ThemeName -s "yellow-mix" &
+            xfconf-query -c xfwm4 -p /general/theme -s "Flat-Remix-Dark-XFWM"
         else
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-blue-mix" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-blue-mix"
+            xfconf-query -c xsettings -p /Net/IconThemeName -s "Purple-Dark" &
+            xfconf-query -c xsettings -p /Net/ThemeName -s "purple-mix" &
+            xfconf-query -c xfwm4 -p /general/theme -s "Flat-Remix-Dark-XFWM"
         fi
-
         ;;
     dark)
-        if [ $(grep -i 'amber' <<< $icon_theme) ]; then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Amber" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-orange-dark" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-orange-dark"
-        elif [ $(grep -i 'green' <<< $icon_theme) ];then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Green" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-green-dark" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-green-dark"
-
-        elif [ $(grep -i 'yellow' <<< $icon_theme) ];then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Yellow" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-yellow-dark" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-yellow-dark"
-
-        elif [ $(grep -i 'gray' <<< $icon_theme) ];then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Gray" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-grey-dark" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-grey-dark"
+        if [ $(grep -i 'green' <<< $icon_theme) ];then
+            xfconf-query -c xsettings -p /Net/IconThemeName -s "Green-Dark" &
+            xfconf-query -c xsettings -p /Net/ThemeName -s "green-dark" &
+            xfconf-query -c xfwm4 -p /general/theme -s "Flat-Remix-Dark-XFWM"
+        elif [ $(grep -i 'orange' <<< $icon_theme) ];then
+            xfconf-query -c xsettings -p /Net/IconThemeName -s "Orange-Dark" &
+            xfconf-query -c xsettings -p /Net/ThemeName -s "orange-dark" &
+            xfconf-query -c xfwm4 -p /general/theme -s "Flat-Remix-Dark-XFWM"
         elif [ $(grep -i 'red' <<< $icon_theme) ];then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Red" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-red-dark" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-red-dark"
+            xfconf-query -c xsettings -p /Net/IconThemeName -s "Red-Dark" &
+            xfconf-query -c xsettings -p /Net/ThemeName -s "red-dark" &
+            xfconf-query -c xfwm4 -p /general/theme -s "Flat-Remix-Dark-XFWM"
         elif [ $(grep -i 'purple' <<< $icon_theme) ];then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Purple" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-purple-dark" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-purple-dark"
-
+            xfconf-query -c xsettings -p /Net/IconThemeName -s "Purple-Dark" &
+            xfconf-query -c xsettings -p /Net/ThemeName -s "purple-dark" &
+            xfconf-query -c xfwm4 -p /general/theme -s "Flat-Remix-Dark-XFWM"
         elif [ $(grep -i 'pink' <<< $icon_theme) ];then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Pink" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-pink-dark" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-pink-dark"
-
+            xfconf-query -c xsettings -p /Net/IconThemeName -s "Pink-Dark" &
+            xfconf-query -c xsettings -p /Net/ThemeName -s "pink-dark" &
+            xfconf-query -c xfwm4 -p /general/theme -s "Flat-Remix-Dark-XFWM"
         else
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-blue-dark" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-blue-dark"
+            xfconf-query -c xsettings -p /Net/IconThemeName -s "Yellow-Dark" &
+            xfconf-query -c xsettings -p /Net/ThemeName -s "yellow-dark" &
+            xfconf-query -c xfwm4 -p /general/theme -s "Flat-Remix-Dark-XFWM"
         fi
         ;;
 
     light)
-        if [ $(grep -i 'amber' <<< $icon_theme) ]; then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Amber-Light" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-orange-light" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-orange-light"
-        elif [ $(grep -i 'green' <<< $icon_theme) ];then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Green-Light" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-green-light" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-green-light"
-
-        elif [ $(grep -i 'yellow' <<< $icon_theme) ];then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Yellow-Light" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-yellow-light" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-yellow-light"
-
-        elif [ $(grep -i 'gray' <<< $icon_theme) ];then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Gray-Light" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-grey-light" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-grey-light"
+        if [ $(grep -i 'green' <<< $icon_theme) ];then
+            xfconf-query -c xsettings -p /Net/IconThemeName -s "Green-Light" &
+            xfconf-query -c xsettings -p /Net/ThemeName -s "green-light" &
+            xfconf-query -c xfwm4 -p /general/theme -s "Flat-Remix-Light-XFWM"
+        elif [ $(grep -i 'orange' <<< $icon_theme) ];then
+            xfconf-query -c xsettings -p /Net/IconThemeName -s "Orange-Light" &
+            xfconf-query -c xsettings -p /Net/ThemeName -s "orange-light" &
+            xfconf-query -c xfwm4 -p /general/theme -s "Flat-Remix-Light-XFWM"
         elif [ $(grep -i 'red' <<< $icon_theme) ];then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Red-Light" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-red-light" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-red-light"
+            xfconf-query -c xsettings -p /Net/IconThemeName -s "Red-Light" &
+            xfconf-query -c xsettings -p /Net/ThemeName -s "red-light" &
+            xfconf-query -c xfwm4 -p /general/theme -s "Flat-Remix-Light-XFWM"
         elif [ $(grep -i 'purple' <<< $icon_theme) ];then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Purple-Light" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-purple-light" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-purple-light"
-
+            xfconf-query -c xsettings -p /Net/IconThemeName -s "Purple-Light" &
+            xfconf-query -c xsettings -p /Net/ThemeName -s "purple-light" &
+            xfconf-query -c xfwm4 -p /general/theme -s "Flat-Remix-Light-XFWM"
         elif [ $(grep -i 'pink' <<< $icon_theme) ];then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Pink-Light" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-pink-light" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-pink-light"
-
+            xfconf-query -c xsettings -p /Net/IconThemeName -s "Pink-Light" &
+            xfconf-query -c xsettings -p /Net/ThemeName -s "pink-light" &
+            xfconf-query -c xfwm4 -p /general/theme -s "Flat-Remix-Light-XFWM"
         else
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Light" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-blue-light" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-blue-light"
+            xfconf-query -c xsettings -p /Net/IconThemeName -s "Yellow-Light" &
+            xfconf-query -c xsettings -p /Net/ThemeName -s "yellow-light" &
+            xfconf-query -c xfwm4 -p /general/theme -s "Flat-Remix-Light-XFWM"
         fi
     ;;
 
-    blue)
+    orange)
         if [ $(grep -i 'dark' <<< $sys_theme) ];then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-blue-dark" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-blue-dark"
+            xfconf-query -c xsettings -p /Net/IconThemeName -s "Orange-Dark" &
+            xfconf-query -c xsettings -p /Net/ThemeName -s "orange-dark" &
+            xfconf-query -c xfwm4 -p /general/theme -s "Flat-Remix-Dark-XFWM"
         elif [ $(grep -i 'light' <<< $sys_theme) ];then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Light" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-blue-light" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-blue-light"
+            xfconf-query -c xsettings -p /Net/IconThemeName -s "Orange-Light" &
+            xfconf-query -c xsettings -p /Net/ThemeName -s "orange-light" &
+            xfconf-query -c xfwm4 -p /general/theme -s "Flat-Remix-Light-XFWM"
         else
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-blue-mix" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-blue-mix"
-        fi
-        ;;
-
-    yellow)
-        if [ $(grep -i 'dark' <<< $sys_theme) ];then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Yellow" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-yellow-dark" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-yellow-dark"
-        elif [ $(grep -i 'light' <<< $sys_theme) ];then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Yellow-Light" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-yellow-light" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-yellow-light"
-        else
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Yellow-Mix" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-yellow-mix" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-yellow-mix"
-        fi
-        ;;
-
-    amber)
-        if [ $(grep -i 'dark' <<< $sys_theme) ];then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Amber" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-orange-dark" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-orange-dark"
-        elif [ $(grep -i 'light' <<< $sys_theme) ];then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Amber-Light" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-orange-light" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-orange-light"
-        else
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Amber" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-orange-mix" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-orange-mix"
-        fi
-        ;;
-
-    gray)
-        if [ $(grep -i 'dark' <<< $sys_theme) ];then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Gray" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-grey-dark" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-grey-dark"
-        elif [ $(grep -i 'light' <<< $sys_theme) ];then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Gray-Light" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-grey-light" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-grey-light"
-        else
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Gray" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-grey-mix" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-grey-mix"
-        fi
-        ;;
-
-    pink)
-        if [ $(grep -i 'dark' <<< $sys_theme) ];then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Pink" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-pink-dark" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-pink-dark"
-        elif [ $(grep -i 'light' <<< $sys_theme) ];then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Pink-Light" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-pink-light" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-pink-light"
-        else
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Pink" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-pink-mix" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-pink-mix"
+            xfconf-query -c xsettings -p /Net/IconThemeName -s "Orange-Dark" &
+            xfconf-query -c xsettings -p /Net/ThemeName -s "orange-mix" &
+            xfconf-query -c xfwm4 -p /general/theme -s "Flat-Remix-Dark-XFWM"
         fi
         ;;
 
     green)
         if [ $(grep -i 'dark' <<< $sys_theme) ];then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Green" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-green-dark" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-green-dark"
+            xfconf-query -c xsettings -p /Net/IconThemeName -s "Green-Dark" &
+            xfconf-query -c xsettings -p /Net/ThemeName -s "green-dark" &
+            xfconf-query -c xfwm4 -p /general/theme -s "Flat-Remix-Dark-XFWM"
         elif [ $(grep -i 'light' <<< $sys_theme) ];then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Green-Light" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-green-light" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-green-light"
+            xfconf-query -c xsettings -p /Net/IconThemeName -s "Green-Light" &
+            xfconf-query -c xsettings -p /Net/ThemeName -s "green-light" &
+            xfconf-query -c xfwm4 -p /general/theme -s "Flat-Remix-Light-XFWM"
         else
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Green" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-green-mix" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-green-mix"
+            xfconf-query -c xsettings -p /Net/IconThemeName -s "Green-Dark" &
+            xfconf-query -c xsettings -p /Net/ThemeName -s "green-mix" &
+            xfconf-query -c xfwm4 -p /general/theme -s "Flat-Remix-Dark-XFWM"
         fi
         ;;
 
     purple)
         if [ $(grep -i 'dark' <<< $sys_theme) ];then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Purple" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-purple-dark" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-purple-dark"
+            xfconf-query -c xsettings -p /Net/IconThemeName -s "Purple-Dark" &
+            xfconf-query -c xsettings -p /Net/ThemeName -s "purple-dark" &
+            xfconf-query -c xfwm4 -p /general/theme -s "Flat-Remix-Dark-XFWM"
         elif [ $(grep -i 'light' <<< $sys_theme) ];then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Purple-Light" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-purple-light" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-purple-light"
+            xfconf-query -c xsettings -p /Net/IconThemeName -s "Purple-Light" &
+            xfconf-query -c xsettings -p /Net/ThemeName -s "purple-light" &
+            xfconf-query -c xfwm4 -p /general/theme -s "Flat-Remix-Light-XFWM"
         else
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Purple" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-purple-mix" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-purple-mix"
+            xfconf-query -c xsettings -p /Net/IconThemeName -s "Purple-Dark" &
+            xfconf-query -c xsettings -p /Net/ThemeName -s "purple-mix" &
+            xfconf-query -c xfwm4 -p /general/theme -s "Flat-Remix-Dark-XFWM"
+        fi
+        ;;
+
+    pink)
+        if [ $(grep -i 'dark' <<< $sys_theme) ];then
+            xfconf-query -c xsettings -p /Net/IconThemeName -s "Pink-Dark" &
+            xfconf-query -c xsettings -p /Net/ThemeName -s "pink-dark" &
+            xfconf-query -c xfwm4 -p /general/theme -s "Flat-Remix-Dark-XFWM"
+        elif [ $(grep -i 'light' <<< $sys_theme) ];then
+            xfconf-query -c xsettings -p /Net/IconThemeName -s "Pink-Light" &
+            xfconf-query -c xsettings -p /Net/ThemeName -s "pink-light" &
+            xfconf-query -c xfwm4 -p /general/theme -s "Flat-Remix-Light-XFWM"
+        else
+            xfconf-query -c xsettings -p /Net/IconThemeName -s "Pink-Dark" &
+            xfconf-query -c xsettings -p /Net/ThemeName -s "pink-mix" &
+            xfconf-query -c xfwm4 -p /general/theme -s "Flat-Remix-Dark-XFWM"
+        fi
+        ;;
+
+    yellow)
+        if [ $(grep -i 'dark' <<< $sys_theme) ];then
+            xfconf-query -c xsettings -p /Net/IconThemeName -s "Yellow-Dark" &
+            xfconf-query -c xsettings -p /Net/ThemeName -s "yellow-dark" &
+            xfconf-query -c xfwm4 -p /general/theme -s "Flat-Remix-Dark-XFWM"
+        elif [ $(grep -i 'light' <<< $sys_theme) ];then
+            xfconf-query -c xsettings -p /Net/IconThemeName -s "Yellow-Light" &
+            xfconf-query -c xsettings -p /Net/ThemeName -s "yellow-light" &
+            xfconf-query -c xfwm4 -p /general/theme -s "Flat-Remix-Light-XFWM"
+        else
+            xfconf-query -c xsettings -p /Net/IconThemeName -s "Yellow-Dark" &
+            xfconf-query -c xsettings -p /Net/ThemeName -s "yellow-mix" &
+            xfconf-query -c xfwm4 -p /general/theme -s "Flat-Remix-Dark-XFWM"
         fi
         ;;
 
     red)
         if [ $(grep -i 'dark' <<< $sys_theme) ];then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Red" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-red-dark" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-red-dark"
+            xfconf-query -c xsettings -p /Net/IconThemeName -s "Red-Dark" &
+            xfconf-query -c xsettings -p /Net/ThemeName -s "red-dark" &
+            xfconf-query -c xfwm4 -p /general/theme -s "Flat-Remix-Dark-XFWM"
         elif [ $(grep -i 'light' <<< $sys_theme) ];then
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Red-Light" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-red-light" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-red-light"
+            xfconf-query -c xsettings -p /Net/IconThemeName -s "Red-Light" &
+            xfconf-query -c xsettings -p /Net/ThemeName -s "red-light" &
+            xfconf-query -c xfwm4 -p /general/theme -s "Flat-Remix-Light-XFWM"
         else
-            xfconf-query -c xsettings -p /Net/IconThemeName -s "Obsidian-Red" &
-            xfconf-query -c xsettings -p /Net/ThemeName -s "tiger-red-mix" &
-            xfconf-query -c xfwm4 -p /general/theme -s "tiger-red-mix"
+            xfconf-query -c xsettings -p /Net/IconThemeName -s "Red-Dark" &
+            xfconf-query -c xsettings -p /Net/ThemeName -s "red-mix" &
+            xfconf-query -c xfwm4 -p /general/theme -s "Flat-Remix-Dark-XFWM"
         fi
         ;;
 

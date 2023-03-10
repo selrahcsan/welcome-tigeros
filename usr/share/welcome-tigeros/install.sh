@@ -104,18 +104,18 @@ case $1 in
         function instalarPacote(){
             export DEBIAN_FRONTEND="noninteractive"
             mkdir -p ~/.tor
-            tar -xf /tmp/tor-browser-linux64-10.0.6_pt-BR.tar.xz -C ~/.tor
+            tar -xf /tmp/tor-browser-linux64-11.0.10_pt-BR.tar.xz -C ~/.tor
             cd ~/.tor/tor-browser_pt-BR
             xdg-open ~/.tor/tor-browser_pt-BR/start-tor-browser.desktop &
             ln -sf ~/.tor/tor-browser_pt-BR/start-tor-browser.desktop ~/.local/share/applications/start-tor-browser.desktop
-            rm /tmp/tor-browser-linux64-10.0.6_pt-BR.tar.xz && {
+            rm /tmp/tor-browser-linux64-11.0.10_pt-BR.tar.xz && {
                 zenity --info --text="O Tor Browser foi instalado com sucesso!" --modal --attach="$windowID" --width=380
             } || {
                 zenity --error --text="Não foi possível concluir a instalação...\nPor favor, tente novamente!" \
                 --modal --attach="$windowID" --width=380
             }
         }
-        "$PWD"/download.sh "https://www.torproject.org/dist/torbrowser/10.0.6/tor-browser-linux64-10.0.6_pt-BR.tar.xz"
+        "$PWD"/download.sh "https://www.torproject.org/dist/torbrowser/11.0.10/tor-browser-linux64-11.0.10_pt-BR.tar.xz"
         instalarPacote | zenity --progress --no-cancel --width=350 --modal \
         --attach="$windowID" --auto-close --pulsate \
         --text="\nPor favor, aguarde...\n" --title="Instalando o Tor Browser..."
@@ -127,10 +127,10 @@ case $1 in
         exit
         ;;
 
-    samba)
+    clamav)
         [ "$(pidof zenity)" ] && zenity --warning --attach="$windowID" --width=380 --modal \
         --text="Já existe outra instalação/remoção em andamento!\nAguarde a instalação/remoção concluir..." && exit
-        "$PWD"/pkg-install.sh samba "Samba"
+        "$PWD"/pkg-install.sh clamtk "Antivírus"
         exit
         ;;
 
@@ -148,21 +148,17 @@ case $1 in
         exit
         ;;
 
-    cache-apt)
-        pkexec apt clean && {
-            zenity --info --modal --text="Cache do APT limpo com sucesso!" --attach="$windowID" --width="380"
-        } || {
-            zenity --error --modal --text="Não foi possível concluir a limpeza!" --attach="$windowID" --width="380"
-        }
+    remmina)
+        [ "$(pidof zenity)" ] && zenity --warning --attach="$windowID" --width=380 --modal \
+        --text="Já existe outra instalação/remoção em andamento!\nAguarde a instalação/remoção concluir..." && exit
+        "$PWD"/pkg-install.sh remmina "Remmina"
         exit
         ;;
 
-    cache-user)
-        rm -rf ~/.cache/* && {
-            zenity --info --modal --text="Cache do usuário limpo com sucesso!" --attach="$windowID" --width="380"
-        } || {
-            zenity --warning --modal --attach="$windowID" --width="380" --text="Cache do usuário já está limpa!"
-        }
+    codecs)
+        [ "$(pidof zenity)" ] && zenity --warning --attach="$windowID" --width=380 --modal \
+        --text="Já existe outra instalação/remoção em andamento!\nAguarde a instalação/remoção concluir..." && exit
+        "$PWD"/wrapper-codecs.sh
         exit
         ;;
 

@@ -32,5 +32,3 @@ function removerPacote(){
 removerPacote "$1" "${2/-/ }" | zenity --progress --no-cancel --width=380 --modal \
 --attach="$windowID" --auto-close --pulsate \
 --text="\nPor favor, aguarde...\n" --title="Removendo o ${2/-/ }..."
-
-exit

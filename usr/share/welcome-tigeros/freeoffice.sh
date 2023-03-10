@@ -18,7 +18,7 @@ function instalarPacote(){
     apt-get update
   fi
   export DEBIAN_FRONTEND="noninteractive"
-  apt-get install softmaker-freeoffice-2018 -y && {
+  apt-get install softmaker-freeoffice-2021 -y && {
     zenity --info --modal --width=350 --attach="$windowID" \
     --text="O FreeOffice foi instalado com sucesso!"
   } || {

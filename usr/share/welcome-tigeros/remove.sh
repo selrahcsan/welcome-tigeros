@@ -239,6 +239,5 @@ case $1 in
 
     *)
         pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY "$PWD"/pkg-remove.sh "$1" "$2"
-        exit
         ;;
 esac

@@ -23,5 +23,5 @@ function instalarPacote(){
 }
 
 instalarPacote "$1" "$2" | zenity --progress --no-cancel --width=380 --modal \
---attach="$windowID" --auto-close --pulsate --time-remaining \
+--attach="$windowID" --auto-close --pulsate \
 --text="\nPor favor, aguarde...\n" --title="Instalando o $2..."
