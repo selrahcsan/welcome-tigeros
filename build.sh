@@ -3,7 +3,7 @@
 [ ! "${EUID}" = "0" ] && {
   echo "Execute esse script como root:"
   echo
-  echo "  sudo ${0}"
+  echo "  sudo ${0} "
   echo
   exit 1
 }
