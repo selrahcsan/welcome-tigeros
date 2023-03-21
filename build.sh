@@ -13,6 +13,9 @@ HERE="$(dirname "$(readlink -f "${0}")")"
 working_dir=$(mktemp -d)
 
 cp -rfv "${HERE}"/* ${working_dir}
+
+sed -i "s|1.2.9|$(date +%y.%m.%d%H%M%S)|g" ${working_dir}/DEBIAN/control
+
 rm ${working_dir}/build.sh
 rm ${working_dir}/README.md 
 chmod -v -R +x ${working_dir}
