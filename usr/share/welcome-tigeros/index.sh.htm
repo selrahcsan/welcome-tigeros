@@ -217,7 +217,7 @@ echo '
                                   </div>
                                   <div class="card-body">'
                                    if [ "$(type -p soffice)" ];then
-                                        echo "<button type='button' onclick=\"_run('./remove.sh libreoffice-* LibreOffice')\"
+                                        echo "<button type='button' onclick=\"_run('./remove.sh libreoffice')\"
                                                 class='btn btn-danger btn-lg btn-block'>Remover</button>"
                                     else
                                         echo "<button type='button' onclick=\"_run('./install.sh libreoffice')\"
@@ -234,7 +234,7 @@ echo '
                                   </div>
                                   <div class="card-body">'
                                    if [ "$(type -p wps)" ];then
-                                        echo "<button type='button' onclick=\"_run('./remove.sh wps-* WPS-Office')\"
+                                        echo "<button type='button' onclick=\"_run('./remove.sh wps')\"
                                                 class='btn btn-danger btn-lg btn-block'>Remover</button>"
                                     else
                                         echo "<button type='button' onclick=\"_run('./install.sh wps')\"
@@ -271,7 +271,7 @@ echo '
                                     </div>
                                     <div class="card-body">'
                                      if [ "$(type -P onlyoffice-desktopeditors)" ];then
-                                        echo "<button type='button' onclick=\"_run('./remove.sh onlyoffice-desktopeditors OnlyOffice')\"
+                                        echo "<button type='button' onclick=\"_run('./remove.sh onlyoffice')\"
                                                 class='btn btn-danger btn-lg btn-block'>Remover</button>"
                                     else
                                         echo "<button type='button' onclick=\"_run('./install.sh onlyoffice')\"
@@ -332,7 +332,7 @@ echo '
                                     </div>
                                     <div class="card-body">'
                                     if [ "$(type -p google-chrome)" ];then
-                                        echo "<button type='button' onclick=\"_run('./remove.sh google-chrome-stable Google-Chrome')\"
+                                        echo "<button type='button' onclick=\"_run('./remove.sh chrome')\"
                                                 class='btn btn-danger btn-lg btn-block'>Remover</button>"
                                     else
                                         echo "<button type='button' onclick=\"_run('./install.sh chrome')\"
@@ -368,7 +368,7 @@ echo '
                                     </div>
                                     <div class="card-body">'
                                     if [ "$(type -P brave-browser)" ];then
-                                        echo "<button type='button' onclick=\"_run('./remove.sh brave-browser Brave-Browser')\"
+                                        echo "<button type='button' onclick=\"_run('./remove.sh brave')\"
                                                 class='btn btn-danger btn-lg btn-block'>Remover</button>"
                                     else
                                         echo "<button type='button' onclick=\"_run('./install.sh brave')\"
@@ -389,7 +389,7 @@ echo '
                                     </div>
                                     <div class="card-body">'
                                     if [ "$(type -P opera)" ];then
-                                        echo "<button type='button' onclick=\"_run('./remove.sh opera-stable Opera')\"
+                                        echo "<button type='button' onclick=\"_run('./remove.sh opera')\"
                                                 class='btn btn-danger btn-lg btn-block'>Remover</button>"
                                     else
                                         echo "<button type='button' onclick=\"_run('./install.sh opera')\"
@@ -407,7 +407,7 @@ echo '
                                     </div>
                                     <div class="card-body">'
                                     if [ "$(type -P firefox)" ];then
-                                        echo "<button type='button' onclick=\"_run('./remove.sh firefox Firefox')\"
+                                        echo "<button type='button' onclick=\"_run('./remove.sh firefox')\"
                                                 class='btn btn-danger btn-lg btn-block'>Remover</button>"
                                     else
                                         echo "<button type='button' onclick=\"_run('./install.sh firefox')\"
