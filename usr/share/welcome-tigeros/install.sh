@@ -11,25 +11,17 @@ windowID="$(xwininfo -name "Bem-vindo TigerOS" | head -n2 | tail -n1 | awk '{pri
 
 case $1 in
     libreoffice)
-        [ "$(pidof zenity)" ] && zenity --warning --attach="$windowID" --width=380 --modal \
-        --text="Já existe outra instalação/remoção em andamento!\nAguarde a instalação/remoção concluir..." && exit
-        pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY "$PWD"/libreoffice.sh
+        flatpak-install-gui --override-appname="LibreOffice" org.libreoffice.LibreOffice
         exit
         ;;
 
     wps)
-        [ "$(pidof zenity)" ] && zenity --warning --attach="$windowID" --width=380 --modal \
-        --text="Já existe outra instalação/remoção em andamento!\nAguarde a instalação/remoção concluir..." && exit
-        pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY "$PWD"/wps.sh
+        flatpak-install-gui --override-appname="WPS Office" com.wps.Office
         exit
         ;;
 
     onlyoffice)
-        [ "$(pidof zenity)" ] && zenity --warning --attach="$windowID" --width=380 --modal \
-        --text="Já existe outra instalação/remoção em andamento!\nAguarde a instalação/remoção concluir..." && exit
-        "$PWD"/download.sh https://download.onlyoffice.com/install/desktop/editors/linux/onlyoffice-desktopeditors_amd64.deb "OnlyOffice"
-        "$PWD"/pkg-install.sh /tmp/onlyoffice-desktopeditors_amd64.deb "OnlyOffice"
-        rm /tmp/onlyoffice-desktopeditors_amd64.deb
+        [flatpak-install-gui --override-appname="OnlyOffice" =  org.onlyoffice.desktopeditors
         exit
         ;;
 
@@ -46,9 +38,7 @@ case $1 in
         ;;
 
     brave)
-        [ "$(pidof zenity)" ] && zenity --warning --attach="$windowID" --width=380 --modal \
-        --text="Já existe outra instalação/remoção em andamento!\nAguarde a instalação/remoção concluir..." && exit
-        pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY "$PWD"/brave.sh
+        flatpak-install-gui --override-appname="Brave" com.brave.Browser
         exit
         ;;
 
@@ -62,9 +52,7 @@ case $1 in
         ;;
 
     opera)
-        [ "$(pidof zenity)" ] && zenity --warning --attach="$windowID" --width=380 --modal \
-        --text="Já existe outra instalação/remoção em andamento!\nAguarde a instalação/remoção concluir..." && exit
-        pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY "$PWD"/opera.sh
+        flatpak-install-gui --override-appname="Opera" com.opera.Opera
         exit
         ;;
 
@@ -79,46 +67,12 @@ case $1 in
         ;;
 
     firefox)
-        [ "$(pidof zenity)" ] && zenity --warning --attach="$windowID" --width=380 --modal \
-        --text="Já existe outra instalação/remoção em andamento!\nAguarde a instalação/remoção concluir..." && exit
-        function instalarPacote(){
-                export DEBIAN_FRONTEND="noninteractive"
-                pkexec apt-get install "$1" "$2" "$3" -y && {
-                    zenity --info --width=380 --attach="$windowID" --modal \
-                    --text="O Firefox foi instalado com sucesso!"
-                } || {
-                    zenity --error --width=380 --attach="$windowID" --modal \
-                    --text="Não foi possível concluir a instalação...\nPor favor, tente novamente!"
-                }
-            }
-
-        instalarPacote "firefox" "firefox-locale-pt" "firefox-locale-en" | zenity --progress --no-cancel --width=380 --modal \
-        --attach="$windowID" --auto-close --pulsate \
-        --text="\nPor favor, aguarde...\n" --title="Instalando o Firefox..."
+        flatpak-install-gui --override-appname="Firefox" org.mozilla.firefox
         exit
         ;;
 
     tor)
-        [ "$(pidof zenity)" ] && zenity --warning --attach="$windowID" --width=380 --modal \
-        --text="Já existe outra instalação/remoção em andamento!\nAguarde a instalação/remoção concluir..." && exit
-        function instalarPacote(){
-            export DEBIAN_FRONTEND="noninteractive"
-            mkdir -p ~/.tor
-            tar -xf /tmp/tor-browser-linux64-11.0.10_pt-BR.tar.xz -C ~/.tor
-            cd ~/.tor/tor-browser_pt-BR
-            xdg-open ~/.tor/tor-browser_pt-BR/start-tor-browser.desktop &
-            ln -sf ~/.tor/tor-browser_pt-BR/start-tor-browser.desktop ~/.local/share/applications/start-tor-browser.desktop
-            rm /tmp/tor-browser-linux64-11.0.10_pt-BR.tar.xz && {
-                zenity --info --text="O Tor Browser foi instalado com sucesso!" --modal --attach="$windowID" --width=380
-            } || {
-                zenity --error --text="Não foi possível concluir a instalação...\nPor favor, tente novamente!" \
-                --modal --attach="$windowID" --width=380
-            }
-        }
-        "$PWD"/download.sh "https://www.torproject.org/dist/torbrowser/11.0.10/tor-browser-linux64-11.0.10_pt-BR.tar.xz"
-        instalarPacote | zenity --progress --no-cancel --width=350 --modal \
-        --attach="$windowID" --auto-close --pulsate \
-        --text="\nPor favor, aguarde...\n" --title="Instalando o Tor Browser..."
+        flatpak-install-gui --override-appname="Tor Browser" com.github.micahflee.torbrowser-launcher
         exit
         ;;
 
