@@ -211,6 +211,62 @@ case $1 in
         exit
         ;;
 
+    libreoffice)
+        flatpak-remove-gui --override-appname="LibreOffice" org.libreoffice.LibreOffice
+        exit
+        ;;
+
+    wps)
+        flatpak-remove-gui --override-appname="WPS Office" com.wps.Office
+        exit
+        ;;
+
+    onlyoffice)
+        flatpak-remove-gui --override-appname="OnlyOffice" org.onlyoffice.desktopeditors
+        exit
+        ;;
+
+    freeoffice)
+        [ "$(pidof zenity)" ] && zenity --warning --attach="$windowID" --width=380 --modal \
+        --text="Já existe outra instalação/remoção em andamento!\nAguarde a instalação/remoção concluir..." && exit
+        pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY "$PWD"/freeoffice.sh
+        # Instala o dicionario
+        wget -q "https://www.softmaker.net/down/hunspell/softmaker-hunspell-portuguese-br-101.sox" -O /tmp/pt_BR.sox
+        mkdir -p ~/SoftMaker/hunspell/pt_BR/ ~/SoftMaker/Settings/
+        unzip /tmp/pt_BR.sox -d ~/SoftMaker/hunspell/pt_BR/
+        echo -e "[UserDict]\nLCID_0=1046,Hunspell\n" > ~/SoftMaker/Settings/tmfo18config.ini
+        exit
+        ;;
+
+    brave)
+        flatpak-remove-gui --override-appname="Brave" com.brave.Browser
+        exit
+        ;;
+
+    chrome)
+        [ "$(pidof zenity)" ] && zenity --warning --attach="$windowID" --width=380 --modal \
+        --text="Já existe outra instalação/remoção em andamento!\nAguarde a instalação/remoção concluir..." && exit
+        "$PWD"/download.sh https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb "Google Chrome"
+        "$PWD"/pkg-install.sh /tmp/google-chrome-stable_current_amd64.deb "Google Chrome"
+        rm /tmp/google-chrome-stable_current_amd64.deb
+        exit
+        ;;
+
+    opera)
+        flatpak-remove-gui --override-appname="Opera" com.opera.Opera
+        exit
+        ;;
+
+    vivaldi)
+        [ "$(pidof zenity)" ] && zenity --warning --attach="$windowID" --width=380 --modal \
+        --text="Já existe outra instalação/remoção em andamento!\nAguarde a instalação/remoção concluir..." && exit
+        version="$(./download.py https://repo.vivaldi.com/archive/deb/pool/main/ | grep -E .*stable.*amd64.*)"
+        "$PWD"/download.sh $version "Vivaldi"
+        "$PWD"/pkg-install.sh /tmp/${version##*/} "Vivaldi"
+        rm /tmp/${version##*/}
+        exit
+        ;;
+
     firefox)
         flatpak-remove-gui --override-appname="Firefox" org.mozilla.firefox
         exit
@@ -220,6 +276,7 @@ case $1 in
         flatpak-remove-gui --override-appname="Tor Browser" com.github.micahflee.torbrowser-launcher
         exit
         ;;
+
 
     *)
         pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY "$PWD"/pkg-remove.sh "$1" "$2"
