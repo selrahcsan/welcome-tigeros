@@ -21,7 +21,7 @@ case $1 in
         ;;
 
     onlyoffice)
-        [flatpak-install-gui --override-appname="OnlyOffice" =  org.onlyoffice.desktopeditors
+        [flatpak-install-gui --override-appname="OnlyOffice" org.onlyoffice.desktopeditors
         exit
         ;;
 
