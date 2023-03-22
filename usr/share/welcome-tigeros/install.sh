@@ -21,7 +21,7 @@ case $1 in
         ;;
 
     onlyoffice)
-        [flatpak-install-gui --override-appname="OnlyOffice" org.onlyoffice.desktopeditors
+        flatpak-install-gui --override-appname="OnlyOffice" org.onlyoffice.desktopeditors
         exit
         ;;
 
@@ -43,11 +43,7 @@ case $1 in
         ;;
 
     chrome)
-        [ "$(pidof zenity)" ] && zenity --warning --attach="$windowID" --width=380 --modal \
-        --text="Já existe outra instalação/remoção em andamento!\nAguarde a instalação/remoção concluir..." && exit
-        "$PWD"/download.sh https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb "Google Chrome"
-        "$PWD"/pkg-install.sh /tmp/google-chrome-stable_current_amd64.deb "Google Chrome"
-        rm /tmp/google-chrome-stable_current_amd64.deb
+        flatpak-install-gui --override-appname="Google Chrome" com.google.Chrome
         exit
         ;;
 
