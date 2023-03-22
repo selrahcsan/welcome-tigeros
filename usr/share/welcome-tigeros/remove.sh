@@ -8,6 +8,11 @@
 # Tecnologias utilizadas: bash, html, css, javascript e <3
 # Script by Natanael.755
 
+function flatpak-remove-gui() {
+  name=$(echo "${1}" | cut -c 20-)
+  flatpak uninstall --assumeyes "${2}" | yad --center --progress --pulsate --auto-close --no-buttons --borders=32 --width=480 --text="<b>Removendo ${name}</b>" --on-top --skip-taskbar --undecorated
+}
+
 windowID="$(xwininfo -name "Bem-vindo TigerOS" | head -n2 | tail -n1 | awk '{print $4}')"
 
 [ "$(pidof zenity)" ] && zenity --warning --width=380 --modal --attach="$windowID" \
@@ -207,33 +212,12 @@ case $1 in
         ;;
 
     firefox)
-        [ "$(pidof zenity)" ] && zenity --warning --width=380 --modal --attach="$windowID" \
-        --text="Já existe outra instalação/remoção em andamento!\nAguarde a instalação/remoção concluir..." && exit
-        function removerPacote(){
-            export DEBIAN_FRONTEND="noninteractive"
-            pkexec apt-get remove --purge "$1" "$2" "$3" -y && {
-                zenity --info --width=380 --attach="$windowID" --modal \
-                --text="O Firefox foi removido com sucesso!"
-            } || {
-                zenity --error --width=380 --attach="$windowID" --modal \
-                --text="Não foi possível concluir a remoção...\nPor favor, tente novamente!"
-            }
-        }
-
-        removerPacote "firefox" "firefox-locale-pt" "firefox-locale-en" | zenity --progress --no-cancel --width=380 --modal \
-        --attach="$windowID" --auto-close --pulsate \
-        --text="\nPor favor, aguarde...\n" --title="Removendo o Firefox..."
+        flatpak-remove-gui --override-appname="Firefox" org.mozilla.firefox
         exit
         ;;
 
     tor)
-        rm -r ~/.tor && {
-            rm ~/.local/share/applications/start-tor-browser.desktop
-            zenity --info --text="O Tor Browser foi removido com sucesso!" --modal --attach="$windowID" --width=380
-        } || {
-            zenity --error --text="Não foi possível concluir a remoção...\nPor favor, tente novamente!" \
-            --modal --attach="$windowID" --width=380
-        }
+        flatpak-remove-gui --override-appname="Tor Browser" com.github.micahflee.torbrowser-launcher
         exit
         ;;
 
