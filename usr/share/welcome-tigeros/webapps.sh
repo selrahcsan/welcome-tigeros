@@ -35,33 +35,34 @@ cat > "/usr/bin/$1" <<EOF
 # @license   http://www.gnu.org/licenses GPL-3.0-or-later
 # @see       https://notabug.org/sepbit/amofi Repository of Amofi
 #
-
-if [ "\$(grep "toolkit.legacyUserProfileCustomizations.stylesheets" "\$HOME/.$1/prefs.js")" = "" ]; then
-    rm -R "\$HOME/.$1"
-    mkdir -p "\$HOME/.$1/chrome"
-    echo 'user_pref("media.eme.enabled", true);' >> "\$HOME/.$1/prefs.js"
-    echo 'user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);' >> "\$HOME/.$1/prefs.js"
-fi
-
+#
+#if [ "\$(grep "toolkit.legacyUserProfileCustomizations.stylesheets" "\$HOME/.$1/prefs.js")" = "" ]; then
+#    rm -R "\$HOME/.$1"
+#    mkdir -p "\$HOME/.$1/chrome"
+#    echo 'user_pref("media.eme.enabled", true);' >> "\$HOME/.$1/prefs.js"
+#    echo 'user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);' >> "\$HOME/.$1/prefs.js"
+#fi
+#
 # Custom profile
-echo "#nav-bar{visibility: collapse;} #TabsToolbar{visibility: collapse;}" >> "\$HOME/.$1/chrome/userChrome.css"
-echo "user_pref(\"browser.tabs.warnOnClose\", false);" >> "\$HOME/.$1/user.js"
-sed -i 's|user_pref("browser.urlbar.placeholderName.*||g' "\$HOME/.$1/prefs.js"
+#echo "#nav-bar{visibility: collapse;} #TabsToolbar{visibility: collapse;}" >> "\$HOME/.$1/chrome/userChrome.css"
+#echo "user_pref(\"browser.tabs.warnOnClose\", false);" >> "\$HOME/.$1/user.js"
+#sed -i 's|user_pref("browser.urlbar.placeholderName.*||g' "\$HOME/.$1/prefs.js"
 
-MOZ_DISABLE_GMP_SANDBOX=1 MOZ_DISABLE_CONTENT_SANDBOX=1 \
-firefox --class=$1 -profile "\$HOME/.$1" \
--no-remote -new-instance "$5" &
-
-count=0
-while [ \$count -lt 100 ]; do
-    if [ "\$(xwininfo -root -children -all | grep -iE "Navigator.*$1")" != "" ]; then
-        /usr/bin/xseticon -id "\$(xwininfo -root -children -all | grep -iE "Navigator.*$1" | awk '{print \$1}')" /usr/share/pixmaps/$4.png
-        count=100
-    else
-        let count=count+1;
-    fi
-    sleep 0.5
-done
+#MOZ_DISABLE_GMP_SANDBOX=1 MOZ_DISABLE_CONTENT_SANDBOX=1 \
+#firefox --class=$1 -profile "\$HOME/.$1" \
+#-no-remote -new-instance "$5" &
+#
+#count=0
+#while [ \$count -lt 100 ]; do
+#    if [ "\$(xwininfo -root -children -all | grep -iE "Navigator.*$1")" != "" ]; then
+#        /usr/bin/xseticon -id "\$(xwininfo -root -children -all | grep -iE "Navigator.*$1" | awk '{print \$1}')" /usr/share/pixmaps/$4.png
+#        count=100
+#    else
+#        let count=count+1;
+#    fi
+#    sleep 0.5
+#done
+webapp-player "$5"
 EOF
 
 chmod +x "/usr/bin/$1"
@@ -72,7 +73,7 @@ Version=1.0
 Terminal=false
 Type=Application
 Name=$2
-Exec=$1
+Exec=webapp-player $5
 Categories=$3;
 Icon=$4" > /tmp/"$1".desktop
 
