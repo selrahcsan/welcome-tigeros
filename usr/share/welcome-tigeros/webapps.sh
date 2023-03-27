@@ -7,8 +7,13 @@
 # Com a ferramenta BigBashView
 # Tecnologias utilizadas: bash, html, css, javascript e <3
 
+WEBAPP_TARGET="${HOME}/.local/share"
+
+mkdir -p "${WEBAPP_TARGET}/bin"
+mkdir -p "${WEBAPP_TARGET}/applications"
+
 #WebApp General
-cat > "/usr/bin/$1" <<EOF
+cat > "${WEBAPP_TARGET}/bin/$1" <<EOF
 #!/usr/bin/env sh
 #
 # Amofi - App mode for Firefox
@@ -77,7 +82,7 @@ Exec=webapp-player $5
 Categories=$3;
 Icon=$4" > /tmp/"$1".desktop
 
-cp -f /tmp/"$1".desktop /usr/share/applications
+cp -f /tmp/"$1".desktop "${WEBAPP_TARGET}/applications"
 rm /tmp/"$1".desktop
 
 exit
