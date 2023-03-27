@@ -118,7 +118,6 @@ case $1 in
         ;;
 
     gcontacts)
-        pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY \
         "$PWD"/webapps.sh "$1" "Google Contacts" "Utility" "$1" "https://contacts.google.com" && {
             zenity --info --text="O webapp Google Contacts foi instalado com sucesso!" --modal --attach="$windowID" --width=380
         } || {
@@ -128,7 +127,6 @@ case $1 in
         ;;
 
     gcalendar)
-        pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY \
         "$PWD"/webapps.sh "$1" "Google Calendar" "Utility" "$1" "https://calendar.google.com/calendar/u/0/r" && {
             zenity --info --text="O webapp Google Calendar foi instalado com sucesso!" --modal --attach="$windowID" --width=380
         } || {
@@ -138,7 +136,6 @@ case $1 in
         ;;
 
     gkeep)
-        pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY \
         "$PWD"/webapps.sh "$1" "Google Keep" "Utility" "$1" "keep.new" && {
             zenity --info --text="O webapp Google Keep foi instalado com sucesso!" --modal --attach="$windowID" --width=380
         } || {
@@ -148,7 +145,6 @@ case $1 in
         ;;
 
     cvyou)
-        pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY \
         "$PWD"/webapps.sh "$1" "CV2You" "Utility" "$1" "resume.new" && {
             zenity --info --text="O webapp CV2You foi instalado com sucesso!" --modal --attach="$windowID" --width=380
         } || {
@@ -158,7 +154,6 @@ case $1 in
         ;;
 
     github)
-        pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY \
         "$PWD"/webapps.sh "$1" "GitHub" "Development" "$1" "github.new" && {
             zenity --info --text="O webapp GitHub foi instalado com sucesso!" --modal --attach="$windowID" --width=380
         } || {
@@ -168,7 +163,6 @@ case $1 in
         ;;
 
     gist)
-        pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY \
         "$PWD"/webapps.sh "$1" "Gist" "Development" "$1" "gist.new" && {
             zenity --info --text="O webapp Gist foi instalado com sucesso!" --modal --attach="$windowID" --width=380
         } || {
@@ -178,7 +172,6 @@ case $1 in
         ;;
 
     glitch)
-        pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY \
         "$PWD"/webapps.sh "$1" "Glitch" "Development" "$1" "glitch.new" && {
             zenity --info --text="O webapp Glitch foi instalado com sucesso!" --modal --attach="$windowID" --width=380
         } || {
@@ -188,7 +181,6 @@ case $1 in
         ;;
 
     codepen)
-        pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY \
         "$PWD"/webapps.sh "$1" "CodePen" "Development" "$1" "pen.new" && {
             zenity --info --text="O webapp CodePen foi instalado com sucesso!" --modal --attach="$windowID" --width=380
         } || {
@@ -198,7 +190,6 @@ case $1 in
         ;;
 
     diagrams)
-        pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY \
         "$PWD"/webapps.sh "$1" "Diagrams" "Development" "$1" "diagrams.new" && {
             zenity --info --text="O webapp Diagrams foi instalado com sucesso!" --modal --attach="$windowID" --width=380
         } || {
@@ -208,7 +199,6 @@ case $1 in
         ;;
 
     gforms)
-        pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY \
         "$PWD"/webapps.sh "$1" "Google Forms" "Office" "$1" "forms.new" && {
             zenity --info --text="O webapp Google Forms foi instalado com sucesso!" --modal --attach="$windowID" --width=380
         } || {
@@ -218,7 +208,6 @@ case $1 in
         ;;
 
     spark)
-        pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY \
         "$PWD"/webapps.sh "$1" "Adobe Spark" "Graphics" "$1" "spark.new" && {
             zenity --info --text="O webapp Adobe Spark foi instalado com sucesso!" --modal --attach="$windowID" --width=380
         } || {
@@ -228,7 +217,6 @@ case $1 in
         ;;
 
     canva)
-        pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY \
         "$PWD"/webapps.sh "$1" "Canva" "Graphics" "$1" "canva.new" && {
             zenity --info --text="O webapp Canva foi instalado com sucesso!" --modal --attach="$windowID" --width=380
         } || {
@@ -238,7 +226,6 @@ case $1 in
         ;;
 
     logomaker)
-        pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY \
         "$PWD"/webapps.sh "$1" "Logo Maker" "Graphics" "$1" "logo.new" && {
             zenity --info --text="O webapp Logo Maker foi instalado com sucesso!" --modal --attach="$windowID" --width=380
         } || {
@@ -248,7 +235,6 @@ case $1 in
         ;;
 
     photoshop)
-        pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY \
         "$PWD"/webapps.sh "$1" "Photoshop Online" "Graphics" "$1" "photoshop.new" && {
             zenity --info --text="O webapp Photoshop Online foi instalado com sucesso!" --modal --attach="$windowID" --width=380
         } || {
@@ -258,7 +244,6 @@ case $1 in
         ;;
 
     photopea)
-        pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY \
         "$PWD"/webapps.sh "$1" "Photopea" "Graphics" "$1" "https://www.photopea.com/" && {
             zenity --info --text="O webapp Photopea Online foi instalado com sucesso!" --modal --attach="$windowID" --width=380
         } || {
@@ -268,7 +253,6 @@ case $1 in
         ;;
 
     gmeet)
-        pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY \
         "$PWD"/webapps.sh "$1" "Google Meet" "Network" "$1" "meet.new" && {
             zenity --info --text="O webapp Google Meet foi instalado com sucesso!" --modal --attach="$windowID" --width=380
         } || {
@@ -278,7 +262,6 @@ case $1 in
         ;;
 
     medium)
-        pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY \
         "$PWD"/webapps.sh "$1" "Medium" "Network" "$1" "story.new" && {
             zenity --info --text="O webapp Medium foi instalado com sucesso!" --modal --attach="$windowID" --width=380
         } || {
