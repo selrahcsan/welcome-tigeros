@@ -70,7 +70,7 @@ cat > "${WEBAPP_TARGET}/bin/$1" <<EOF
 webapp-player "$5"
 EOF
 
-chmod +x "/usr/bin/$1"
+chmod +x "${WEBAPP_TARGET}/bin/$1"
 
 echo "#!/usr/bin/env xdg-open
 [Desktop Entry]
