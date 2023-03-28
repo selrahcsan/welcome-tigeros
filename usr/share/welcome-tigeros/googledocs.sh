@@ -27,7 +27,7 @@ Version=1.0
 Terminal=false
 Type=Application
 Name=Google Docs
-Exec=gdocs
+Exec=webapp-player https://docs.google.com/document
 Categories=Office;
 Icon=docs" > /tmp/gdocs.desktop
 
@@ -50,7 +50,7 @@ Version=1.0
 Terminal=false
 Type=Application
 Name=Google Sheets
-Exec=gsheets
+Exec=webapp-player https://docs.google.com/spreadsheets
 Categories=Office;
 Icon=sheets" > /tmp/gsheets.desktop
 
@@ -73,7 +73,7 @@ Version=1.0
 Terminal=false
 Type=Application
 Name=Google Slides
-Exec=gslides
+Exec=webapp-player https://docs.google.com/presentation
 Categories=Office;
 Icon=slides" > /tmp/gslides.desktop
 
