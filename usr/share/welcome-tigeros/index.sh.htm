@@ -7,6 +7,8 @@
 # Com a ferramenta BigBashView
 # Tecnologias utilizadas: bash, html, css, javascript e <3
 
+export PATH="${PATH}:${HOME}/.local/share/bin"
+
 icon_theme="$(xfconf-query -c xsettings -p /Net/IconThemeName)"
 sys_theme="$(xfconf-query -c xsettings -p /Net/ThemeName)"
 
@@ -345,15 +347,15 @@ echo '
                             <div class="col-4">
                                 <div class="card border-primary mb-3" style="max-width: 12rem;">
                                     <div class="card-header text-center">
-                                        <img src="icons/vivaldi.png" alt="Vivaldi" height="48" width="48">
-                                        <h5>Vivaldi</h5>
+                                        <img src="icons/edge.png" alt="Edge" height="48" width="48">
+                                        <h5>Microsoft Edge</h5>
                                     </div>
                                     <div class="card-body">'
-                                    if [ "$(type -P vivaldi)" ];then
-                                        echo "<button type='button' onclick=\"_run('./remove.sh vivaldi-stable Vivaldi')\"
+                                    if test -f /var/lib/flatpak/app/com.microsoft.Edge/current/active/deploy; then
+                                        echo "<button type='button' onclick=\"_run('./remove.sh edge')\"
                                                 class='btn btn-danger btn-lg btn-block'>Remover</button>"
                                     else
-                                        echo "<button type='button' onclick=\"_run('./install.sh vivaldi')\"
+                                        echo "<button type='button' onclick=\"_run('./install.sh edge')\"
                                                 class='btn btn-primary btn-lg btn-block'>Instalar</button>"
                                     fi
                                 echo '</div>
