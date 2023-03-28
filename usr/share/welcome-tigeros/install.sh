@@ -52,13 +52,8 @@ case $1 in
         exit
         ;;
 
-    vivaldi)
-        [ "$(pidof zenity)" ] && zenity --warning --attach="$windowID" --width=380 --modal \
-        --text="Já existe outra instalação/remoção em andamento!\nAguarde a instalação/remoção concluir..." && exit
-        version="$(./download.py https://repo.vivaldi.com/archive/deb/pool/main/ | grep -E .*stable.*amd64.*)"
-        "$PWD"/download.sh $version "Vivaldi"
-        "$PWD"/pkg-install.sh /tmp/${version##*/} "Vivaldi"
-        rm /tmp/${version##*/}
+    edge)
+        flatpak-install-gui --override-appname="Microsoft Edge" com.microsoft.Edge
         exit
         ;;
 
