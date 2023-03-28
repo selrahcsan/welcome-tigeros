@@ -248,15 +248,15 @@ echo '
                             <div class="col-4">
                                 <div class="card border-primary mb-3" style="max-width: 12rem;">
                                     <div class="card-header text-center">
-                                        <img src="icons/freeoffice.png" alt="FreeOffice" height="48" width="48">
-                                        <h4>FreeOffice</h4>
+                                        <img src="icons/googledocs.png" alt="FreeOffice" height="48" width="48">
+                                        <h4>Google Docs</h4>
                                     </div>
                                     <div class="card-body">'
-                                     if [ "$(type -p textmaker18free)" ];then
-                                        echo "<button type='button' onclick=\"_run('./remove.sh softmaker-freeoffice-2018 FreeOffice')\"
+                                    if [ "$(type -P gdocs)" ];then
+                                        echo "<button type='button' onclick=\"_run('./remove.sh googledocs')\"
                                                 class='btn btn-danger btn-lg btn-block'>Remover</button>"
                                     else
-                                        echo "<button type='button' onclick=\"_run('./install.sh freeoffice')\"
+                                        echo "<button type='button' onclick=\"_run('./install.sh googledocs')\"
                                                 class='btn btn-primary btn-lg btn-block'>Instalar</button>"
                                     fi
                                 echo '</div>
@@ -295,24 +295,6 @@ echo '
                                                 class='btn btn-danger btn-lg btn-block'>Remover</button>"
                                     else
                                         echo "<button type='button' onclick=\"_run('./install.sh msoffice')\"
-                                                class='btn btn-primary btn-lg btn-block'>Instalar</button>"
-                                    fi
-                                echo '</div>
-                                </div>
-                            </div>
-
-                            <div class="col-4">
-                                <div class="card border-primary mb-3" style="max-width: 12rem;">
-                                    <div class="card-header text-center">
-                                        <img src="icons/googledocs.png" alt="GoogleDocs" height="48" width="48">
-                                        <h4>Google Docs</h4>
-                                    </div>
-                                    <div class="card-body">'
-                                    if [ "$(type -P gdocs)" ];then
-                                        echo "<button type='button' onclick=\"_run('./remove.sh googledocs')\"
-                                                class='btn btn-danger btn-lg btn-block'>Remover</button>"
-                                    else
-                                        echo "<button type='button' onclick=\"_run('./install.sh googledocs')\"
                                                 class='btn btn-primary btn-lg btn-block'>Instalar</button>"
                                     fi
                                 echo '</div>
