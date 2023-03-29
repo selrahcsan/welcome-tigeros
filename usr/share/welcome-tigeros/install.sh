@@ -25,18 +25,6 @@ case $1 in
         exit
         ;;
 
-    freeoffice)
-        [ "$(pidof zenity)" ] && zenity --warning --attach="$windowID" --width=380 --modal \
-        --text="Já existe outra instalação/remoção em andamento!\nAguarde a instalação/remoção concluir..." && exit
-        pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY "$PWD"/freeoffice.sh
-        # Instala o dicionario
-        wget -q "https://www.softmaker.net/down/hunspell/softmaker-hunspell-portuguese-br-101.sox" -O /tmp/pt_BR.sox
-        mkdir -p ~/SoftMaker/hunspell/pt_BR/ ~/SoftMaker/Settings/
-        unzip /tmp/pt_BR.sox -d ~/SoftMaker/hunspell/pt_BR/
-        echo -e "[UserDict]\nLCID_0=1046,Hunspell\n" > ~/SoftMaker/Settings/tmfo18config.ini
-        exit
-        ;;
-
     brave)
         flatpak-install-gui --override-appname="Brave" com.brave.Browser
         exit
@@ -68,14 +56,12 @@ case $1 in
         ;;
 
     update)
-        /usr/bin/update-manager &
+        io.elementary.appcenter --show-updates &
         exit
         ;;
 
     clamav)
-        [ "$(pidof zenity)" ] && zenity --warning --attach="$windowID" --width=380 --modal \
-        --text="Já existe outra instalação/remoção em andamento!\nAguarde a instalação/remoção concluir..." && exit
-        "$PWD"/pkg-install.sh clamtk "Antivírus"
+        flatpak-install-gui --override-appname="Antivírus" com.gitlab.davem.ClamTk
         exit
         ;;
 
@@ -94,9 +80,7 @@ case $1 in
         ;;
 
     remmina)
-        [ "$(pidof zenity)" ] && zenity --warning --attach="$windowID" --width=380 --modal \
-        --text="Já existe outra instalação/remoção em andamento!\nAguarde a instalação/remoção concluir..." && exit
-        "$PWD"/pkg-install.sh remmina "Remmina"
+        flatpak-install-gui --override-appname="Remmina" org.remmina.Remmina
         exit
         ;;
 
