@@ -1,2 +1,2 @@
 # welcome
-Painel de Boas-vindas do TigerOS
+App de Boas-vindas do TigerOS
