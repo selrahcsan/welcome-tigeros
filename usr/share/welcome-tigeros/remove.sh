@@ -24,6 +24,17 @@ windowID="$(xwininfo -name "Bem-vindo TigerOS" | head -n2 | tail -n1 | awk '{pri
 --text="Já existe outra instalação/remoção em andamento!\nAguarde a instalação/remoção concluir..." && exit
 
 case $1 in
+
+    clamav)
+        flatpak-remove-gui --override-appname="Antivírus" com.gitlab.davem.ClamTk
+        exit
+    ;;
+    
+    remmina)
+        flatpak-remove-gui --override-appname="Remmina" org.remmina.Remmina
+        exit
+    ;;
+
     msoffice)
         pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY rm ${WEBAPP_TARGET}/bin/msword ${WEBAPP_TARGET}/bin/msexcel ${WEBAPP_TARGET}/bin/mspowerpoint \
         ${WEBAPP_TARGET}/applications/msword.desktop ${WEBAPP_TARGET}/applications/msexcel.desktop ${WEBAPP_TARGET}/applications/mspowerpoint.desktop && {
