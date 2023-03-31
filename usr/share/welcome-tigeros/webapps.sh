@@ -7,6 +7,8 @@
 # Com a ferramenta BigBashView
 # Tecnologias utilizadas: bash, html, css, javascript e <3
 
+windowID="$(xwininfo -name "Bem-vindo TigerOS" | head -n2 | tail -n1 | awk '{print $4}')"
+
 WEBAPP_TARGET="${HOME}/.local/share"
 
 mkdir -p "${WEBAPP_TARGET}/bin"
@@ -84,5 +86,7 @@ Icon=$4" > /tmp/"$1".desktop
 
 cp -f /tmp/"$1".desktop "${WEBAPP_TARGET}/applications"
 rm /tmp/"$1".desktop
+
+zenity --info --text="O webapp ${2} foi instalado com sucesso!" --modal --attach="$windowID" --width=380
 
 exit
