@@ -175,8 +175,8 @@ echo '
                                         class='btn btn-primary btn-block'>Atualizar Sistema</button>"'
                             </div>
                             <div class="col-4">'
-                                if [ -e /usr/share/apport/package-hooks/source_clamav.py ];then
-                                    echo "<button type='button' onclick=\"_run('./remove.sh clamtk Antivírus')\"
+                                if test -f /var/lib/flatpak/app/com.gitlab.davem.ClamTk/current/active/deploy; then
+                                    echo "<button type='button' onclick=\"_run('./remove.sh clamav')\"
                                                   class='btn btn-danger btn-block btn-remove'>
                                                   Remover Antivírus
                                           </button>"
@@ -190,8 +190,8 @@ echo '
                         </div><br>
                         <div class="row">
                             <div class="col-4">'
-                        if [ "$(type -p remmina)" ];then
-                            echo '<button '"onclick=\"_run('./remove.sh remmina Remmina')\""' type="button"
+                        if test -f /var/lib/flatpak/app/org.remmina.Remmina/current/active/deploy; then
+                            echo '<button '"onclick=\"_run('./remove.sh remmina')\""' type="button"
                                         class="btn btn-danger btn-block">Remover Remmina</button>'
                         else
                             echo '<button '"onclick=\"_run('./install.sh remmina')\""' type="button"
