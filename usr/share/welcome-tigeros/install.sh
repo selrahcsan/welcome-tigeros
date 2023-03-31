@@ -66,16 +66,14 @@ case $1 in
         ;;
 
     msoffice)
-        pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY "$PWD"/msoffice.sh
-        [ $(type -P msword) ] && zenity --info --modal \
-        --text="O Microsoft Office Online foi instalado com sucesso!" --attach="$windowID" --width="380"
+        "$PWD"/msoffice.sh
+        echo "Foi chamado" > /tmp/msoffice
         exit
         ;;
 
     googledocs)
-        pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY "$PWD"/googledocs.sh
-        [ $(type -P gdocs) ] && zenity --info --modal \
-        --text="O Google Docs foi instalado com sucesso!" --attach="$windowID" --width="380"
+        "$PWD"/googledocs.sh
+        echo "Foi chamado" > /tmp/gdocs
         exit
         ;;
 
