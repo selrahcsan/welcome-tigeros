@@ -13,8 +13,7 @@ criando uma lista de temas e estilo
 
 
 aviso_instalador_do_menu="Bem-vindo(a)
-Ao clicar, os softwares em flatpak, utilizarão temas GTK 
-de maneira automática. 
+Ao clicar, os softwares em flatpak, seus temas originais 
 "
 
 aviso_sucesso="<big><b>A restauração foi um sucesso</b></big>
