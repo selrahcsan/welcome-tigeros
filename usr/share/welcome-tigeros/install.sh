@@ -88,6 +88,11 @@ case $1 in
         "$PWD"/wrapper-codecs.sh
         exit
         ;;
+    
+    temas-flatpak)
+        "$PWD"/instalar-temas-flatpak.sh
+        exit
+        ;;
 
     driver)
         driver-manager

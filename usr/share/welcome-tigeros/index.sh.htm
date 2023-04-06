@@ -202,6 +202,15 @@ echo '
                                 <button '"onclick=\"_run('./install.sh codecs')\""' type="button"
                                         class="btn btn-primary btn-block">Instalar Codecs</button>
                             </div>
+                            <div class="col-4">'
+                                if [ -f /usr/share/welcome-tigeros/flatpakThemes ]; then
+                                    echo '<button '"onclick=\"_run('./remove.sh temas-flatpak')\""' type="button"
+                                                class="btn btn-danger btn-block">Restaura tema Flatpak</button>'
+                                else
+                                    echo '<button '"onclick=\"_run('./install.sh temas-flatpak')\""' type="button"
+                                                class="btn btn-primary btn-block">Aplicar Temas Flatpak</button>'
+                                fi
+                            echo '  </div>
                         </div>
 
                     </div>

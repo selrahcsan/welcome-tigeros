@@ -284,6 +284,12 @@ case $1 in
         exit
         ;;
 
+    temas-flatpak)
+        "$PWD"/restaurar-temas-flatpak.sh
+        exit
+        ;;
+
+
 
     *)
         pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY "$PWD"/pkg-remove.sh "$1" "$2"
