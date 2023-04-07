@@ -1,15 +1,15 @@
 #!/bin/bash
 
-criando uma lista de temas e estilo
-    corTemaSistema=("orange" "green" "orange" "pink" "purple" "red" "yellow")
-    estiloTemaSistema=("dark" "light" "mix")
+# criando uma lista de temas e estilo
+#     corTemaSistema=("orange" "green" "orange" "pink" "purple" "red" "yellow")
+#     estiloTemaSistema=("dark" "light" "mix")
 
-    # Em um laço encadeado, copia somente os temas padrão do sistema
-    for estilotema in ${estiloTemaSistema[@]}; do
-        for cortema in ${corTemaSistema[@]}; do
-            rm -R ~/.themes/$cortema-$estilotema
-        done
-    done
+#     # Em um laço encadeado, copia somente os temas padrão do sistema
+#     for estilotema in ${estiloTemaSistema[@]}; do
+#         for cortema in ${corTemaSistema[@]}; do
+#             rm -R ~/.themes/$cortema-$estilotema
+#         done
+#     done
 
 
 aviso_instalador_do_menu="Bem-vindo(a)

@@ -1,16 +1,16 @@
 #!/bin/bash
 
-#criando uma lista de temas e estilo
-corTemaSistema=("orange" "green" "orange" "pink" "purple" "red" "yellow")
-estiloTemaSistema=("dark" "light" "mix")
+# #criando uma lista de temas e estilo
+# corTemaSistema=("orange" "green" "orange" "pink" "purple" "red" "yellow")
+# estiloTemaSistema=("dark" "light" "mix")
 
 
-# Em um laço encadeado, copia somente os temas padrão do sistema
-for estilotema in ${estiloTemaSistema[@]}; do
-    for cortema in ${corTemaSistema[@]}; do
-        cp -r /usr/share/themes/$cortema-$estilotema ~/.themes/
-    done
-done
+# # Em um laço encadeado, copia somente os temas padrão do sistema
+# for estilotema in ${estiloTemaSistema[@]}; do
+#     for cortema in ${corTemaSistema[@]}; do
+#         cp -r /usr/share/themes/$cortema-$estilotema ~/.themes/
+#     done
+# done
 
 
 
